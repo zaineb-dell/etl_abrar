@@ -1,0 +1,186 @@
+2026-04-15 22:31:48,168 [INFO] =================================================================
+2026-04-15 22:31:48,168 [INFO] ETL TÉLÉCOM v4.2 — RAW + DETAIL + AGG + DW  (architecture modulaire)
+2026-04-15 22:31:48,169 [INFO] =================================================================
+2026-04-15 22:31:48,274 [INFO] ✓ Connecté Oracle 21.3.0.0.0
+2026-04-15 22:31:48,283 [INFO]   Table existe : DW_TELECOM.RAW_MMG
+2026-04-15 22:31:48,284 [INFO]   Table existe : DW_TELECOM.RAW_OCC
+2026-04-15 22:31:48,285 [INFO]   Table existe : DW_TELECOM.DETAIL_MMG
+2026-04-15 22:31:48,286 [INFO]   Table existe : DW_TELECOM.DETAIL_OCC
+2026-04-15 22:31:48,286 [INFO]   Table existe : DW_TELECOM.AGG_MMG
+2026-04-15 22:31:48,288 [INFO]   Table existe : DW_TELECOM.AGG_OCC
+2026-04-15 22:31:48,288 [INFO]   Table existe : DW_TELECOM.DIM_TEMPS
+2026-04-15 22:31:48,289 [INFO]   Table existe : DW_TELECOM.DIM_ABONNE
+2026-04-15 22:31:48,358 [INFO]   Table créée  : DW_TELECOM.DIM_SERVICE
+2026-04-15 22:31:48,410 [INFO]   Table créée  : DW_TELECOM.DIM_FOURNISSEUR
+2026-04-15 22:31:48,411 [INFO]   Table existe : DW_TELECOM.FACT_REVENUS
+2026-04-15 22:31:48,412 [INFO]   Table existe : DW_TELECOM.ETL_LOG
+2026-04-15 22:31:48,554 [INFO]   Infrastructure complète prête.
+2026-04-15 22:31:48,555 [INFO] [REMOTE] FTP_ENABLED=false — téléchargement désactivé.
+2026-04-15 22:31:48,557 [WARNING] Aucun fichier à traiter dans INPUT_DIR.
+2026-04-15 23:12:19,068 [INFO] =================================================================
+2026-04-15 23:12:19,069 [INFO] DW CHARGEMENT
+2026-04-15 23:12:19,069 [INFO] =================================================================
+2026-04-15 23:12:19,577 [INFO] ✓ Connecté Oracle 21.3.0.0.0
+2026-04-15 23:12:19,578 [INFO] Etape 1 : DIM_SERVICE <- REF_SERVICE
+2026-04-15 23:12:19,579 [WARNING]   REF_SERVICE vide
+2026-04-15 23:12:19,580 [INFO] Etape 2 : DIM_FOURNISSEUR <- REF_FOURNISSEUR
+2026-04-15 23:12:19,583 [WARNING]   REF_FOURNISSEUR vide
+2026-04-15 23:12:19,583 [INFO] Etape 3 : AGG_MMG -> DIM_ABONNE + DIM_TEMPS + FACT
+2026-04-15 23:12:19,599 [INFO]   1 fichier(s) MMG
+2026-04-15 23:12:19,599 [INFO]   -> [AGG_MMG]
+2026-04-15 23:12:21,035 [INFO]     -> 2208/2208 lignes
+2026-04-15 23:12:21,042 [INFO]   DIM_TEMPS : 2,208 entrees
+2026-04-15 23:12:21,139 [INFO]     -> 327/327 lignes
+2026-04-15 23:12:21,152 [INFO]   DIM_ABONNE  : 327 abonnes
+2026-04-15 23:12:21,531 [WARNING]   [MMG FACT] Ignores — date:0 abonne:0 service:221708
+2026-04-15 23:12:21,532 [INFO]   FACT_REVENUS [MMG] : 0 lignes MERGE
+2026-04-15 23:12:21,542 [INFO] Etape 4 : AGG_OCC -> DIM_ABONNE + DIM_TEMPS + FACT
+2026-04-15 23:12:21,558 [INFO]   1 fichier(s) OCC
+2026-04-15 23:12:21,558 [INFO]   -> [AGG_OCC]
+2026-04-15 23:12:22,849 [INFO]     -> 2208/2208 lignes
+2026-04-15 23:12:22,855 [INFO]   DIM_TEMPS : 2,208 entrees
+2026-04-15 23:12:22,930 [INFO]     -> 50/50 lignes
+2026-04-15 23:12:22,933 [INFO]   DIM_ABONNE  : 50 abonnes
+2026-04-15 23:12:23,458 [WARNING]   [OCC FACT] Ignores — date:0 abonne:0 service:203097
+2026-04-15 23:12:23,459 [INFO]   FACT_REVENUS [OCC] : 0 lignes MERGE
+2026-04-15 23:12:23,470 [INFO] =================================================================
+2026-04-15 23:12:23,470 [INFO] STATS FINALES
+2026-04-15 23:12:23,476 [INFO]   DW_TELECOM.FACT_REVENUS                       :          0
+2026-04-15 23:12:23,480 [INFO]   DW_TELECOM.DIM_ABONNE                         :        327
+2026-04-15 23:12:23,483 [INFO]   DW_TELECOM.DIM_TEMPS                          :      2,208
+2026-04-15 23:12:23,485 [INFO]   DW_TELECOM.DIM_SERVICE                        :          0
+2026-04-15 23:12:23,489 [INFO]   DW_TELECOM.DIM_FOURNISSEUR                    :          0
+2026-04-15 23:12:23,491 [INFO] =================================================================
+2026-04-15 23:12:23,492 [INFO] DW alimente avec succes
+2026-04-15 23:23:50,654 [INFO] =================================================================
+2026-04-15 23:23:50,655 [INFO] DW CHARGEMENT
+2026-04-15 23:23:50,655 [INFO] =================================================================
+2026-04-15 23:23:50,786 [INFO] ✓ Connecté Oracle 21.3.0.0.0
+2026-04-15 23:23:50,787 [INFO] Etape 1 : DIM_SERVICE <- REF_SERVICE
+2026-04-15 23:23:50,789 [WARNING]   REF_SERVICE vide
+2026-04-15 23:23:50,790 [INFO] Etape 2 : DIM_FOURNISSEUR <- REF_FOURNISSEUR
+2026-04-15 23:23:50,790 [WARNING]   REF_FOURNISSEUR vide
+2026-04-15 23:23:50,791 [INFO] Etape 3 : AGG_MMG -> DIM_ABONNE + DIM_TEMPS + FACT
+2026-04-15 23:23:50,822 [INFO]   1 fichier(s) MMG
+2026-04-15 23:23:50,823 [INFO]   -> [AGG_MMG]
+2026-04-15 23:23:54,188 [INFO]     -> 2208/2208 lignes
+2026-04-15 23:23:54,201 [INFO]   DIM_TEMPS : 2,208 entrees
+2026-04-15 23:23:54,356 [INFO]     -> 327/327 lignes
+2026-04-15 23:23:54,364 [INFO]   DIM_ABONNE  : 327 abonnes
+2026-04-15 23:23:55,364 [WARNING]   [MMG FACT] Ignores — date:0 abonne:0 service:221708
+2026-04-15 23:23:55,364 [INFO]   FACT_REVENUS [MMG] : 0 lignes MERGE
+2026-04-15 23:23:55,383 [INFO] Etape 4 : AGG_OCC -> DIM_ABONNE + DIM_TEMPS + FACT
+2026-04-15 23:23:55,409 [INFO]   1 fichier(s) OCC
+2026-04-15 23:23:55,409 [INFO]   -> [AGG_OCC]
+2026-04-15 23:23:58,197 [INFO]     -> 2208/2208 lignes
+2026-04-15 23:23:58,209 [INFO]   DIM_TEMPS : 2,208 entrees
+2026-04-15 23:23:58,347 [INFO]     -> 50/50 lignes
+2026-04-15 23:23:58,349 [INFO]   DIM_ABONNE  : 50 abonnes
+2026-04-15 23:23:59,677 [WARNING]   [OCC FACT] Ignores — date:0 abonne:0 service:203097
+2026-04-15 23:23:59,677 [INFO]   FACT_REVENUS [OCC] : 0 lignes MERGE
+2026-04-15 23:23:59,696 [INFO] =================================================================
+2026-04-15 23:23:59,697 [INFO] STATS FINALES
+2026-04-15 23:23:59,698 [INFO]   DW_TELECOM.FACT_REVENUS                       :          0
+2026-04-15 23:23:59,699 [INFO]   DW_TELECOM.DIM_ABONNE                         :        327
+2026-04-15 23:23:59,699 [INFO]   DW_TELECOM.DIM_TEMPS                          :      2,208
+2026-04-15 23:23:59,701 [INFO]   DW_TELECOM.DIM_SERVICE                        :          0
+2026-04-15 23:23:59,702 [INFO]   DW_TELECOM.DIM_FOURNISSEUR                    :          0
+2026-04-15 23:23:59,704 [INFO] =================================================================
+2026-04-15 23:23:59,704 [INFO] DW alimente avec succes
+2026-04-15 23:26:02,317 [INFO] =================================================================
+2026-04-15 23:26:02,318 [INFO] DW CHARGEMENT
+2026-04-15 23:26:02,318 [INFO] =================================================================
+2026-04-15 23:26:02,476 [INFO] ✓ Connecté Oracle 21.3.0.0.0
+2026-04-15 23:26:02,476 [INFO] Etape 1 : DIM_SERVICE <- REF_SERVICE
+2026-04-15 23:28:19,941 [INFO] =================================================================
+2026-04-15 23:28:19,943 [INFO] ETL TÉLÉCOM v4.2 — RAW + DETAIL + AGG + DW  (architecture modulaire)
+2026-04-15 23:28:19,943 [INFO] =================================================================
+2026-04-15 23:28:20,096 [INFO] ✓ Connecté Oracle 21.3.0.0.0
+2026-04-15 23:28:20,099 [INFO]   Table existe : DW_TELECOM.RAW_MMG
+2026-04-15 23:28:20,099 [INFO]   Table existe : DW_TELECOM.RAW_OCC
+2026-04-15 23:28:20,100 [INFO]   Table existe : DW_TELECOM.DETAIL_MMG
+2026-04-15 23:28:20,101 [INFO]   Table existe : DW_TELECOM.DETAIL_OCC
+2026-04-15 23:28:20,102 [INFO]   Table existe : DW_TELECOM.AGG_MMG
+2026-04-15 23:28:20,103 [INFO]   Table existe : DW_TELECOM.AGG_OCC
+2026-04-15 23:28:20,104 [INFO]   Table existe : DW_TELECOM.DIM_TEMPS
+2026-04-15 23:28:20,104 [INFO]   Table existe : DW_TELECOM.DIM_ABONNE
+2026-04-15 23:28:20,105 [INFO]   Table existe : DW_TELECOM.DIM_SERVICE
+2026-04-15 23:28:20,105 [INFO]   Table existe : DW_TELECOM.DIM_FOURNISSEUR
+2026-04-15 23:28:20,107 [INFO]   Table existe : DW_TELECOM.FACT_REVENUS
+2026-04-15 23:28:20,108 [INFO]   Table existe : DW_TELECOM.ETL_LOG
+2026-04-15 23:28:20,159 [INFO]   Infrastructure complète prête.
+2026-04-15 23:28:20,160 [INFO] [REMOTE] FTP_ENABLED=false — téléchargement désactivé.
+2026-04-15 23:28:20,161 [WARNING] Aucun fichier à traiter dans INPUT_DIR.
+2026-04-15 23:29:23,296 [INFO] =================================================================
+2026-04-15 23:29:23,298 [INFO] DW CHARGEMENT
+2026-04-15 23:29:23,298 [INFO] =================================================================
+2026-04-15 23:29:23,394 [INFO] ✓ Connecté Oracle 21.3.0.0.0
+2026-04-15 23:29:23,394 [INFO] Etape 1 : DIM_SERVICE <- REF_SERVICE
+2026-04-15 23:29:23,464 [INFO]   DIM_SERVICE : 7 services
+2026-04-15 23:29:23,464 [INFO] Etape 2 : DIM_FOURNISSEUR <- REF_FOURNISSEUR
+2026-04-15 23:29:23,465 [WARNING]   REF_FOURNISSEUR vide
+2026-04-15 23:29:23,466 [INFO] Etape 3 : AGG_MMG -> DIM_ABONNE + DIM_TEMPS + FACT
+2026-04-15 23:29:23,499 [INFO]   1 fichier(s) MMG
+2026-04-15 23:29:23,500 [INFO]   -> [AGG_MMG]
+2026-04-15 23:29:26,381 [INFO]     -> 2208/2208 lignes
+2026-04-15 23:29:26,391 [INFO]   DIM_TEMPS : 2,208 entrees
+2026-04-15 23:29:26,512 [INFO]     -> 327/327 lignes
+2026-04-15 23:29:26,519 [INFO]   DIM_ABONNE  : 327 abonnes
+2026-04-15 23:29:27,725 [WARNING]   [MMG FACT] Ignores — date:0 abonne:0 service:119230
+2026-04-15 23:29:28,254 [INFO]     -> 5000/102478 lignes
+2026-04-15 23:29:28,757 [INFO]     -> 10000/102478 lignes
+2026-04-15 23:29:29,172 [INFO]     -> 15000/102478 lignes
+2026-04-15 23:29:29,633 [INFO]     -> 20000/102478 lignes
+2026-04-15 23:29:30,079 [INFO]     -> 25000/102478 lignes
+2026-04-15 23:29:30,504 [INFO]     -> 30000/102478 lignes
+2026-04-15 23:29:30,864 [INFO]     -> 35000/102478 lignes
+2026-04-15 23:29:31,189 [INFO]     -> 40000/102478 lignes
+2026-04-15 23:29:31,490 [INFO]     -> 45000/102478 lignes
+2026-04-15 23:29:31,779 [INFO]     -> 50000/102478 lignes
+2026-04-15 23:29:32,065 [INFO]     -> 55000/102478 lignes
+2026-04-15 23:29:32,390 [INFO]     -> 60000/102478 lignes
+2026-04-15 23:29:32,668 [INFO]     -> 65000/102478 lignes
+2026-04-15 23:29:32,958 [INFO]     -> 70000/102478 lignes
+2026-04-15 23:29:33,220 [INFO]     -> 75000/102478 lignes
+2026-04-15 23:29:33,474 [INFO]     -> 80000/102478 lignes
+2026-04-15 23:29:33,710 [INFO]     -> 85000/102478 lignes
+2026-04-15 23:29:33,991 [INFO]     -> 90000/102478 lignes
+2026-04-15 23:29:34,210 [INFO]     -> 95000/102478 lignes
+2026-04-15 23:29:34,420 [INFO]     -> 100000/102478 lignes
+2026-04-15 23:29:34,532 [INFO]     -> 102478/102478 lignes
+2026-04-15 23:29:34,538 [INFO]   FACT_REVENUS [MMG] : 102,478 lignes MERGE
+2026-04-15 23:29:34,570 [INFO] Etape 4 : AGG_OCC -> DIM_ABONNE + DIM_TEMPS + FACT
+2026-04-15 23:29:34,586 [INFO]   1 fichier(s) OCC
+2026-04-15 23:29:34,587 [INFO]   -> [AGG_OCC]
+2026-04-15 23:29:36,880 [INFO]     -> 2208/2208 lignes
+2026-04-15 23:29:36,889 [INFO]   DIM_TEMPS : 2,208 entrees
+2026-04-15 23:29:36,994 [INFO]     -> 50/50 lignes
+2026-04-15 23:29:36,996 [INFO]   DIM_ABONNE  : 50 abonnes
+2026-04-15 23:29:38,118 [WARNING]   [OCC FACT] Ignores — date:0 abonne:0 service:121832
+2026-04-15 23:29:38,319 [INFO]     -> 5000/81265 lignes
+2026-04-15 23:29:38,503 [INFO]     -> 10000/81265 lignes
+2026-04-15 23:29:38,695 [INFO]     -> 15000/81265 lignes
+2026-04-15 23:29:38,873 [INFO]     -> 20000/81265 lignes
+2026-04-15 23:29:39,066 [INFO]     -> 25000/81265 lignes
+2026-04-15 23:29:39,253 [INFO]     -> 30000/81265 lignes
+2026-04-15 23:29:39,450 [INFO]     -> 35000/81265 lignes
+2026-04-15 23:29:39,684 [INFO]     -> 40000/81265 lignes
+2026-04-15 23:29:39,863 [INFO]     -> 45000/81265 lignes
+2026-04-15 23:29:40,041 [INFO]     -> 50000/81265 lignes
+2026-04-15 23:29:40,219 [INFO]     -> 55000/81265 lignes
+2026-04-15 23:29:40,432 [INFO]     -> 60000/81265 lignes
+2026-04-15 23:29:40,648 [INFO]     -> 65000/81265 lignes
+2026-04-15 23:29:40,825 [INFO]     -> 70000/81265 lignes
+2026-04-15 23:29:41,005 [INFO]     -> 75000/81265 lignes
+2026-04-15 23:29:41,181 [INFO]     -> 80000/81265 lignes
+2026-04-15 23:29:41,240 [INFO]     -> 81265/81265 lignes
+2026-04-15 23:29:41,245 [INFO]   FACT_REVENUS [OCC] : 81,265 lignes MERGE
+2026-04-15 23:29:41,281 [INFO] =================================================================
+2026-04-15 23:29:41,281 [INFO] STATS FINALES
+2026-04-15 23:29:41,285 [INFO]   DW_TELECOM.FACT_REVENUS                       :     57,746
+2026-04-15 23:29:41,286 [INFO]   DW_TELECOM.DIM_ABONNE                         :        327
+2026-04-15 23:29:41,286 [INFO]   DW_TELECOM.DIM_TEMPS                          :      2,208
+2026-04-15 23:29:41,289 [INFO]   DW_TELECOM.DIM_SERVICE                        :          7
+2026-04-15 23:29:41,290 [INFO]   DW_TELECOM.DIM_FOURNISSEUR                    :          0
+2026-04-15 23:29:41,292 [INFO] =================================================================
+2026-04-15 23:29:41,292 [INFO] DW alimente avec succes
