@@ -23,7 +23,7 @@ from db import get_conn, etl_log, sep, tbl
 from ddl import init_all_tables
 from extract import extract_local, detect_type, validate_schema
 from ftp_client import pull_remote_files
-from load import insert_raw, insert_detail, aggregate_and_insert_mmg, aggregate_and_insert_occ
+from load import insert_raw, insert_detail, aggregate_and_insert_mmg, aggregate_and_insert_occ, delete_raw_after_detail, purge_detail_30_days
 from transform import transform_mmg, transform_occ
 from warehouse import (
     upsert_dim_temps, upsert_dim_abonne,
@@ -65,6 +65,10 @@ def process_file(fname: str, df_raw, conn) -> None:
         df = transform_mmg(df_raw, fname) if dtype == "MMG" else transform_occ(df_raw, fname)
         n_detail = insert_detail(df, dtype, fname, conn)
         etl_log(conn, dtype, fname, "DETAIL", n_in, n_detail, "OK")
+
+        # ── Suppression RAW après DETAIL réussi ─────────────
+        log.info(f"  → Suppression RAW_{dtype} (données chargées en DETAIL)")
+        delete_raw_after_detail(dtype, fname, conn)
 
         # ── Niveau 3 : AGG ──────────────────────────────────
         log.info(f"  → Niveau 3 : AGG_{dtype}")
@@ -123,6 +127,10 @@ def run_pipeline() -> None:
             archive_file(path)
         except Exception:
             log.error(f"Fichier ignoré (erreur) : {path.name}")
+
+    # ── Purge DETAIL > 30 jours ──────────────────────────────────
+    log.info("  → Purge DETAIL (enregistrements > 30 jours)")
+    purge_detail_30_days(conn)
 
     # ── Stats finales ────────────────────────────────────────
     cur = conn.cursor()

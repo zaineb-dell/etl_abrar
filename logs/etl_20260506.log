@@ -1,0 +1,27 @@
+2026-05-06 21:49:41,073 [INFO] =================================================================
+2026-05-06 21:49:41,074 [INFO] ETL TÉLÉCOM v4.2 — RAW + DETAIL + AGG + DW  (architecture modulaire)
+2026-05-06 21:49:41,074 [INFO] =================================================================
+2026-05-06 21:49:42,643 [ERROR] Erreur Oracle 28000 : ORA-28000: Compte verrouillé.
+2026-05-06 21:51:10,393 [INFO] =================================================================
+2026-05-06 21:51:10,393 [INFO] DW CHARGEMENT
+2026-05-06 21:51:10,393 [INFO] =================================================================
+2026-05-06 21:51:10,589 [ERROR] Erreur Oracle 28000 : ORA-28000: Compte verrouillé.
+2026-05-06 22:01:27,253 [INFO] =================================================================
+2026-05-06 22:01:27,253 [INFO] ETL TÉLÉCOM v4.2 — RAW + DETAIL + AGG + DW  (architecture modulaire)
+2026-05-06 22:01:27,254 [INFO] =================================================================
+2026-05-06 22:01:27,413 [INFO] ✓ Connecté Oracle 21.3.0.0.0
+2026-05-06 22:01:27,859 [INFO]   Table existe : DW_TELECOM.RAW_MMG
+2026-05-06 22:01:27,860 [INFO]   Table existe : DW_TELECOM.RAW_OCC
+2026-05-06 22:01:27,863 [INFO]   Table existe : DW_TELECOM.DETAIL_MMG
+2026-05-06 22:01:27,864 [INFO]   Table existe : DW_TELECOM.DETAIL_OCC
+2026-05-06 22:01:27,865 [INFO]   Table existe : DW_TELECOM.AGG_MMG
+2026-05-06 22:01:27,868 [INFO]   Table existe : DW_TELECOM.AGG_OCC
+2026-05-06 22:01:27,870 [INFO]   Table existe : DW_TELECOM.DIM_TEMPS
+2026-05-06 22:01:27,871 [INFO]   Table existe : DW_TELECOM.DIM_ABONNE
+2026-05-06 22:01:27,872 [INFO]   Table existe : DW_TELECOM.DIM_SERVICE
+2026-05-06 22:01:27,874 [INFO]   Table existe : DW_TELECOM.DIM_FOURNISSEUR
+2026-05-06 22:01:27,875 [INFO]   Table existe : DW_TELECOM.FACT_REVENUS
+2026-05-06 22:01:27,876 [INFO]   Table existe : DW_TELECOM.ETL_LOG
+2026-05-06 22:01:27,967 [INFO]   Infrastructure complète prête.
+2026-05-06 22:01:27,969 [INFO] [REMOTE] FTP_ENABLED=false — téléchargement désactivé.
+2026-05-06 22:01:27,970 [WARNING] Aucun fichier à traiter dans INPUT_DIR.

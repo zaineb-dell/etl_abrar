@@ -111,6 +111,38 @@ def insert_detail(df: pd.DataFrame, dtype: str, fname: str, conn) -> int:
 
 
 
+# ── Suppression RAW après DETAIL ───────────────────────────────
+
+def delete_raw_after_detail(dtype: str, fname: str, conn) -> int:
+    """Supprime les lignes RAW_MMG ou RAW_OCC après insertion réussie en DETAIL."""
+    raw_table = tbl(f"RAW_{dtype}")
+    sql = f"DELETE FROM {raw_table} WHERE fichier_source = :1"
+    cur = conn.cursor()
+    cur.execute(sql, [fname])
+    n = cur.rowcount
+    conn.commit()
+    cur.close()
+    log.info(f"  RAW_{dtype} : {n:,} lignes supprimées (fichier={fname})")
+    return n
+
+
+# ── Purge DETAIL > 30 jours ────────────────────────────────────
+
+def purge_detail_30_days(conn) -> None:
+    """Supprime les enregistrements DETAIL_MMG et DETAIL_OCC de plus de 30 jours."""
+    for dtype in ("MMG", "OCC"):
+        detail_table = tbl(f"DETAIL_{dtype}")
+        sql = f"DELETE FROM {detail_table} WHERE START_DATE < SYSDATE - 30"
+        cur = conn.cursor()
+        cur.execute(sql)
+        n = cur.rowcount
+        conn.commit()
+        cur.close()
+        log.info(f"  DETAIL_{dtype} : {n:,} lignes purgées (> 30 jours)")
+
+
+# ── Niveau 3 : AGG ─────────────────────────────────────────────
+
 def aggregate_and_insert_mmg(df, fname, conn):
     """Agrège les SMS MMG par B_MSISDN + date + heure + service → MERGE AGG_MMG."""
     now = datetime.now()
